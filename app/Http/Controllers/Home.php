@@ -18,12 +18,17 @@ class Home extends Controller
 {
     public function index()
     {
+
         $articles = Articles::where('valide', true)
                             ->orderBy('created_at', 'desc')
                             ->take(120)
                             ->get();
-                            
-        $gestion = Gestions::findOrFail(1);
+        if(count($articles) > 0)
+        {
+            $gestion = Gestions::findOrFail(1);
+        } else{
+            $gestion = "";
+        }
 
         if(auth()->check())
         {

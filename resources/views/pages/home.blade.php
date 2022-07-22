@@ -13,7 +13,6 @@
 						@auth
 							@include('layouts.article.form_ajout')
 						@endauth
-						
 					</div>
 				</div>
 			</div>
